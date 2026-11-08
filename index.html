@@ -55,6 +55,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .filters button[aria-pressed="true"]::after{content:"";display:block;height:1px;background:var(--gold);margin-top:4px}
 .enq{text-decoration:none;border:1px solid rgba(243,239,230,.35);padding:9px 18px;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
 .enq:hover{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+.acts{display:flex;align-items:center;gap:14px}
+.ig{display:flex;color:var(--fg);opacity:.8;transition:opacity .2s,color .2s;padding:6px}
+.ig:hover{opacity:1;color:var(--gold)}
+.igline{display:inline-flex;align-items:center;gap:10px;margin-top:34px;text-decoration:none;color:var(--fg);font-size:12px;transition:color .2s}
+.igline:hover{color:var(--gold)}
 @media(max-width:900px){
   .bar .in{height:auto;padding-block:14px 8px;flex-wrap:wrap}
   .filters{order:3;width:100%}
@@ -149,7 +154,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <button type="button" data-f="narra" aria-pressed="false">Narramatics</button>
       <button type="button" data-f="india" aria-pressed="false">India</button>
     </nav>
-    <a class="enq cap" href="#enquire">Enquire</a>
+    <div class="acts"><a class="ig" href="https://www.instagram.com/leobolt_/" target="_blank" rel="noopener" aria-label="LeoBolt on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a class="enq cap" href="#enquire">Enquire</a></div>
   </div>
 </header>
 
@@ -168,6 +174,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <span class="mail" id="mailTxt">leoboltstudio@gmail.com</span>
     <button id="copyMail" class="cap" type="button">Copy</button>
   </div>
+  <a class="igline cap" href="https://www.instagram.com/leobolt_/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg><span>@leobolt_</span></a>
   <div class="svcs cap">
     <span>AI Films</span><span>Narramatics</span><span>Animated Videos</span><span>AI VFX</span>
   </div>
