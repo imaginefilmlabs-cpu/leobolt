@@ -56,6 +56,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .enq{text-decoration:none;border:1px solid rgba(243,239,230,.35);padding:9px 18px;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
 .enq:hover{background:var(--fg);color:var(--ink);border-color:var(--fg)}
 .acts{display:flex;align-items:center;gap:14px}
+.about{text-decoration:none;color:var(--mut);transition:color .2s;padding:6px 4px}
+.about:hover{color:var(--fg)}
 .ig{display:flex;color:var(--fg);opacity:.8;transition:opacity .2s,color .2s;padding:6px}
 .ig:hover{opacity:1;color:var(--gold)}
 .igline{display:inline-flex;align-items:center;gap:10px;margin-top:34px;text-decoration:none;color:var(--fg);font-size:12px;transition:color .2s}
@@ -154,7 +156,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <button type="button" data-f="narra" aria-pressed="false">Narramatics</button>
       <button type="button" data-f="india" aria-pressed="false">India</button>
     </nav>
-    <div class="acts"><a class="ig" href="https://www.instagram.com/leobolt_/" target="_blank" rel="noopener" aria-label="LeoBolt on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <div class="acts"><a class="about cap" href="about.html">About</a><a class="ig" href="https://www.instagram.com/leobolt_/" target="_blank" rel="noopener" aria-label="LeoBolt on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
     <a class="enq cap" href="#enquire">Enquire</a></div>
   </div>
 </header>
@@ -255,6 +257,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       if(f!=='all') scrollTo({top:0,behavior:reduced?'auto':'smooth'});
     });
   });
+
+  /* deep link from the About page: #f=<category> */
+  var hm=(location.hash||'').match(/^#f=(\w+)$/);
+  if(hm){ var fb=fbtns.filter(function(x){return x.dataset.f===hm[1]})[0]; if(fb) fb.click(); }
 
   /* giant wordmark fades as the wall scrolls */
   var g=document.getElementById('giant');

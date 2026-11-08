@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About — LeoBolt</title>
+<meta name="description" content="LeoBolt is an AI film studio in Mumbai. A full film crew's process for AI films, narramatics, animated videos and AI VFX.">
+<link rel="icon" type="image/png" href="brand/favicon.png">
+<link rel="apple-touch-icon" href="brand/favicon.png">
+<meta property="og:title" content="About — LeoBolt AI Film Studio">
+<meta property="og:image" content="brand/logo-colour.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Archivo:wdth,wght@125,400;125,500;125,600&family=VT323&display=swap">
+<style>
+/* Layout: one editorial column on the dark wall palette; numbered process because it is a real sequence */
+:root{
+  --ink:#070707; --tile:#121110; --fg:#f3efe6; --mut:#8c877d; --gold:#c9a96a; --line:#24221f;
+  --serif:'Bodoni Moda','Didot','Bodoni 72',Georgia,serif;
+  --wide:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --cam:'VT323','Courier New',monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--wide);font-stretch:125%;font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+[hidden]{display:none!important}
+img,video{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:1px solid var(--gold);outline-offset:3px}
+.cap{font-family:var(--wide);font-stretch:125%;font-weight:500;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(7,7,7,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
+.mark img{display:block;height:22px;width:auto;max-width:none}
+.links{display:flex;align-items:center;gap:22px}
+.links a{text-decoration:none;color:var(--mut);transition:color .2s}
+.links a:hover,.links a[aria-current]{color:var(--fg)}
+.links a[aria-current]::after{content:"";display:block;height:1px;background:var(--gold);margin-top:4px}
+.ig{display:flex;color:var(--fg);opacity:.8;padding:6px}.ig:hover{opacity:1;color:var(--gold)}
+.enq{text-decoration:none;border:1px solid rgba(243,239,230,.35);padding:9px 18px;white-space:nowrap;color:var(--fg)!important}
+.enq:hover{background:var(--fg);color:var(--ink)!important}
+@media(max-width:640px){.mark img{height:16px}.links{gap:8px}.links .hide-sm{display:none}.enq{padding:8px 12px}.bar .in{gap:10px}}
+
+/* hero */
+.hero{padding-block:110px 70px}
+.eyebrow{color:var(--gold)}
+.hero h1{margin:22px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(42px,7.4vw,104px);line-height:1;letter-spacing:-.02em;max-width:13ch;text-wrap:balance}
+.hero h1 em{color:var(--gold)}
+.lede{margin-top:40px;max-width:58ch;font-size:clamp(15px,1.5vw,17px);color:#d9d4c8}
+.lede b{color:var(--fg);font-weight:500}
+
+/* reel strip */
+.strip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;padding-left:max(10px,env(safe-area-inset-left,0px));padding-right:max(10px,env(safe-area-inset-right,0px))}
+.strip figure{margin:0;position:relative;border-radius:8px;overflow:hidden;background:var(--tile);aspect-ratio:16/9;min-width:0}
+.strip figure:first-child{aspect-ratio:auto}
+.strip video,.strip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.strip .cam{position:absolute;right:10px;bottom:6px;font-family:var(--cam);font-size:17px;color:#ffcf6b;text-shadow:0 0 6px rgba(255,180,60,.6)}
+.strip .rec{position:absolute;left:10px;bottom:6px;font-family:var(--cam);font-size:17px;color:#fff}
+.strip .rec::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff3b30;margin-right:6px;vertical-align:1px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+@media(max-width:700px){.strip{grid-template-columns:1fr 1fr}.strip figure:first-child{grid-column:1/-1;aspect-ratio:16/9}}
+
+/* sections */
+section{padding-block:96px;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+.sec-head{display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:start}
+.sec-head h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.8vw,52px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+.sec-head h2 em{color:var(--gold)}
+.sec-head p{margin:0;max-width:58ch;color:#d9d4c8}
+@media(max-width:800px){.sec-head{grid-template-columns:1fr;gap:20px}}
+
+.steps{list-style:none;margin:60px 0 0;padding:0;border-top:1px solid var(--line)}
+.steps li{display:grid;grid-template-columns:90px minmax(0,1fr) minmax(0,2fr);gap:24px;padding-block:28px;border-bottom:1px solid var(--line);align-items:baseline}
+.steps .no{font-family:var(--cam);font-size:22px;color:var(--gold)}
+.steps h3{margin:0;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.2}
+.steps p{margin:0;color:var(--mut)}
+@media(max-width:800px){.steps li{grid-template-columns:56px minmax(0,1fr)}.steps p{grid-column:2}}
+
+.crew{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:60px}
+.crew div{background:var(--ink);padding:28px 24px 30px;min-width:0}
+.crew h3{margin:10px 0 8px;font-family:var(--serif);font-style:italic;font-weight:400;font-size:24px}
+.crew p{margin:0;color:var(--mut);font-size:14px}
+.crew .cap{color:var(--gold)}
+@media(max-width:900px){.crew{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.crew{grid-template-columns:1fr}}
+
+.make{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:50px}
+.make a{text-decoration:none;font-family:var(--serif);font-size:clamp(22px,3vw,34px);line-height:1.2;padding:6px 18px 8px;border:1px solid var(--line);border-radius:999px;transition:border-color .2s,color .2s}
+.make a:hover{border-color:var(--gold);color:var(--gold)}
+
+/* closing */
+.close{text-align:center;padding-block:120px 60px}
+.sting{position:relative;width:min(380px,78vw);aspect-ratio:960/564;margin:0 auto 50px;border-radius:6px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(201,169,106,.25)}
+.sting img,.sting video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.close h2{margin:16px auto 0;font-family:var(--serif);font-weight:400;font-size:clamp(34px,5.6vw,80px);line-height:1.02;max-width:14ch;text-wrap:balance}
+.close h2 em{color:var(--gold)}
+.mail{display:inline-block;margin-top:40px;font-family:var(--serif);font-style:italic;font-size:clamp(20px,3vw,30px);user-select:all;border-bottom:1px solid var(--line);padding:4px}
+.igline{display:inline-flex;align-items:center;gap:10px;margin-top:28px;text-decoration:none;font-size:12px}
+.igline:hover{color:var(--gold)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:90px;color:var(--mut)}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap in">
+    <a class="mark" href="./" aria-label="LeoBolt home"><img src="brand/logo-wordmark.png" alt="LeoBolt" width="640" height="88"></a>
+    <nav class="links cap" aria-label="Main">
+      <a class="hide-sm" href="./">Work</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a class="ig" href="https://www.instagram.com/leobolt_/" target="_blank" rel="noopener" aria-label="LeoBolt on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a class="enq" href="#enquire">Enquire</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <span class="cap eyebrow">About LeoBolt</span>
+    <h1>A film crew, rebuilt for <em>AI.</em></h1>
+    <p class="lede">LeoBolt is an AI film studio in Mumbai, working with brands and agencies worldwide. We make <b>AI films, narramatics, animated videos and AI VFX</b>. Every frame is made with AI, and every decision still goes through a director, a DOP and an edit, the same way a live-action shoot does.</p>
+  </div>
+
+  <div class="strip" aria-hidden="true">
+    <figure><video src="wall/c41.mp4" poster="wall/c41.webp" muted loop playsinline autoplay preload="metadata"></video><span class="rec">REC</span><span class="cam">AUG.15</span></figure>
+    <figure><video src="wall/c27.mp4" poster="wall/c27.webp" muted loop playsinline autoplay preload="metadata"></video></figure>
+    <figure><video src="wall/c49.mp4" poster="wall/c49.webp" muted loop playsinline autoplay preload="metadata"></video></figure>
+  </div>
+
+  <div class="wrap">
+    <section>
+      <div class="sec-head">
+        <h2>How a film <em>moves</em></h2>
+        <p>Every project follows the same path. You see it and approve it at each stage, so nothing reaches final picture as a surprise.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="no">01</span><h3>References first</h3><p>A script starts with real film and ad grabs, not prompts. We agree on the look in pictures before anything is generated.</p></li>
+        <li><span class="no">02</span><h3>Look lock</h3><p>Cast, product and world are fixed as references, so the same face, the same bottle and the same street hold from the first shot to the last.</p></li>
+        <li><span class="no">03</span><h3>Storyboard &amp; animatic</h3><p>Every shot is boarded, then cut into a timed animatic with temp voice. You watch the film before it exists.</p></li>
+        <li><span class="no">04</span><h3>Picture</h3><p>Shots are generated, reviewed and approved one at a time, with continuity tracked across the board.</p></li>
+        <li><span class="no">05</span><h3>Edit &amp; delivery</h3><p>Sound, grade and every ratio you need. Each film ships with an editable timeline, so your post team is never locked out.</p></li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="sec-head">
+        <h2>The <em>crew</em></h2>
+        <p>The departments of a real set, working at the speed of software.</p>
+      </div>
+      <div class="crew">
+        <div><span class="cap">Dept. 01</span><h3>Director</h3><p>Owns the story, the performance and every final call.</p></div>
+        <div><span class="cap">Dept. 02</span><h3>DOP</h3><p>Light, colour and texture: the reason it looks like film.</p></div>
+        <div><span class="cap">Dept. 03</span><h3>Camera &amp; Lens</h3><p>Shot size, angle, lens and movement for every frame.</p></div>
+        <div><span class="cap">Dept. 04</span><h3>Assistant Director</h3><p>The board, the schedule and continuity, shot by shot.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head">
+        <h2>What we <em>make</em></h2>
+        <p>From a single product film to a full music video. Pick a category to see the work.</p>
+      </div>
+      <div class="make">
+        <a href="./#f=film">AI Films</a>
+        <a href="./#f=music">Music Videos</a>
+        <a href="./#f=product">Product Films</a>
+        <a href="./#f=anim">Animation</a>
+        <a href="./#f=vfx">AI VFX</a>
+        <a href="./#f=narra">Narramatics</a>
+      </div>
+    </section>
+  </div>
+
+  <section class="close" id="enquire">
+    <div class="wrap">
+      <div class="sting"><img src="brand/logo-colour.webp" alt="LeoBolt — AI Film Studio" width="960" height="564"><video src="brand/logo-sting.mp4" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video></div>
+      <span class="cap" style="color:var(--gold)">Enquire</span>
+      <h2>Let's make something <em>with love.</em></h2>
+      <div><span class="mail">leoboltstudio@gmail.com</span></div>
+      <a class="igline cap" href="https://www.instagram.com/leobolt_/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg><span>@leobolt_</span></a>
+      <div class="foot cap"><span>© LeoBolt</span><span>Mumbai — Worldwide</span></div>
+    </div>
+  </section>
+</main>
+
+<script>
+/* respect reduced motion: stop autoplaying videos */
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('video').forEach(function (v) { v.removeAttribute('autoplay'); try { v.pause(); } catch (e) {} });
+}
+</script>
+</body>
+</html>
