@@ -1,0 +1,369 @@
+{
+ "_help": "Wall clips in display order. category: film | music | product | anim | vfx | narra. Edit this file, then run: python3 tools/build.py",
+ "clips": [
+  {
+   "id": "c01",
+   "label": "Rain Plate",
+   "category": "film",
+   "stamp": "NOV.07",
+   "india": false
+  },
+  {
+   "id": "c05",
+   "label": "Crash Zoom",
+   "category": "music",
+   "stamp": "AUG.30",
+   "india": false
+  },
+  {
+   "id": "c49",
+   "label": "Car Reveal",
+   "category": "product",
+   "stamp": "JUN.12",
+   "india": false
+  },
+  {
+   "id": "c37",
+   "label": "Inverted",
+   "category": "music",
+   "stamp": "MAR.03",
+   "india": true
+  },
+  {
+   "id": "c02",
+   "label": "Hand-Painted",
+   "category": "anim",
+   "stamp": "MAR.14",
+   "india": false
+  },
+  {
+   "id": "c03",
+   "label": "Liquid Macro",
+   "category": "vfx",
+   "stamp": "JUL.02",
+   "india": false
+  },
+  {
+   "id": "c04",
+   "label": "Storyboard",
+   "category": "narra",
+   "stamp": "FEB.21",
+   "india": false
+  },
+  {
+   "id": "c38",
+   "label": "Worm's Eye",
+   "category": "music",
+   "stamp": "JUL.22",
+   "india": true
+  },
+  {
+   "id": "c06",
+   "label": "Fashion Film",
+   "category": "film",
+   "stamp": "MAY.11",
+   "india": false
+  },
+  {
+   "id": "c07",
+   "label": "Fisheye",
+   "category": "music",
+   "stamp": "JUN.19",
+   "india": false
+  },
+  {
+   "id": "c50",
+   "label": "Cockpit",
+   "category": "product",
+   "stamp": "JUN.12",
+   "india": false
+  },
+  {
+   "id": "c39",
+   "label": "Dutch Angle",
+   "category": "film",
+   "stamp": "OCT.11",
+   "india": true
+  },
+  {
+   "id": "c12",
+   "label": "Collage",
+   "category": "anim",
+   "stamp": "APR.26",
+   "india": false
+  },
+  {
+   "id": "c08",
+   "label": "Time Smear",
+   "category": "vfx",
+   "stamp": "OCT.03",
+   "india": false
+  },
+  {
+   "id": "c22",
+   "label": "Pencil Board",
+   "category": "narra",
+   "stamp": "JAN.19",
+   "india": false
+  },
+  {
+   "id": "c40",
+   "label": "Keyhole",
+   "category": "film",
+   "stamp": "FEB.14",
+   "india": true
+  },
+  {
+   "id": "c10",
+   "label": "Symmetry",
+   "category": "film",
+   "stamp": "JAN.08",
+   "india": false
+  },
+  {
+   "id": "c09",
+   "label": "Gel Portrait",
+   "category": "music",
+   "stamp": "DEC.24",
+   "india": false
+  },
+  {
+   "id": "c51",
+   "label": "Bottle Top Shot",
+   "category": "product",
+   "stamp": "FEB.09",
+   "india": false
+  },
+  {
+   "id": "c41",
+   "label": "Spiral Tunnel",
+   "category": "vfx",
+   "stamp": "AUG.15",
+   "india": true
+  },
+  {
+   "id": "c17",
+   "label": "Miniature",
+   "category": "anim",
+   "stamp": "DEC.12",
+   "india": false
+  },
+  {
+   "id": "c20",
+   "label": "Scale Shot",
+   "category": "vfx",
+   "stamp": "JUN.01",
+   "india": false
+  },
+  {
+   "id": "c23",
+   "label": "Animatic",
+   "category": "narra",
+   "stamp": "SEP.06",
+   "india": false
+  },
+  {
+   "id": "c42",
+   "label": "Extreme Close-Up",
+   "category": "film",
+   "stamp": "NOV.04",
+   "india": true
+  },
+  {
+   "id": "c13",
+   "label": "Platform Fog",
+   "category": "film",
+   "stamp": "FEB.02",
+   "india": false
+  },
+  {
+   "id": "c15",
+   "label": "Neon Street",
+   "category": "music",
+   "stamp": "JUL.17",
+   "india": false
+  },
+  {
+   "id": "c52",
+   "label": "Sneaker Drop",
+   "category": "product",
+   "stamp": "AUG.02",
+   "india": false
+  },
+  {
+   "id": "c43",
+   "label": "Top Shot",
+   "category": "music",
+   "stamp": "MAR.21",
+   "india": true
+  },
+  {
+   "id": "c18",
+   "label": "Anime",
+   "category": "anim",
+   "stamp": "AUG.09",
+   "india": false
+  },
+  {
+   "id": "c27",
+   "label": "Chrome",
+   "category": "vfx",
+   "stamp": "DEC.31",
+   "india": false
+  },
+  {
+   "id": "c24",
+   "label": "Moodboard",
+   "category": "narra",
+   "stamp": "APR.14",
+   "india": false
+  },
+  {
+   "id": "c44",
+   "label": "Rain Night",
+   "category": "music",
+   "stamp": "JUL.30",
+   "india": true
+  },
+  {
+   "id": "c14",
+   "label": "Silk & Marble",
+   "category": "film",
+   "stamp": "NOV.21",
+   "india": false
+  },
+  {
+   "id": "c16",
+   "label": "Super 8",
+   "category": "music",
+   "stamp": "MAY.05",
+   "india": false
+  },
+  {
+   "id": "c53",
+   "label": "Perfume Ripple",
+   "category": "product",
+   "stamp": "DEC.19",
+   "india": false
+  },
+  {
+   "id": "c46",
+   "label": "Miniature Painting",
+   "category": "anim",
+   "stamp": "JAN.26",
+   "india": true
+  },
+  {
+   "id": "c19",
+   "label": "Motion Graphics",
+   "category": "anim",
+   "stamp": "MAR.30",
+   "india": false
+  },
+  {
+   "id": "c31",
+   "label": "Zoetrope",
+   "category": "narra",
+   "stamp": "AUG.18",
+   "india": false
+  },
+  {
+   "id": "c26",
+   "label": "Corridor",
+   "category": "film",
+   "stamp": "JUL.11",
+   "india": false
+  },
+  {
+   "id": "c47",
+   "label": "Aerial",
+   "category": "vfx",
+   "stamp": "OCT.24",
+   "india": true
+  },
+  {
+   "id": "c25",
+   "label": "Fisheye Mono",
+   "category": "music",
+   "stamp": "FEB.27",
+   "india": false
+  },
+  {
+   "id": "c54",
+   "label": "Watch Macro",
+   "category": "product",
+   "stamp": "MAY.30",
+   "india": false
+  },
+  {
+   "id": "c29",
+   "label": "Cartoon",
+   "category": "anim",
+   "stamp": "OCT.15",
+   "india": false
+  },
+  {
+   "id": "c48",
+   "label": "Wedding Board",
+   "category": "narra",
+   "stamp": "NOV.28",
+   "india": true
+  },
+  {
+   "id": "c32",
+   "label": "Cross-Process",
+   "category": "film",
+   "stamp": "MAR.08",
+   "india": false
+  },
+  {
+   "id": "c28",
+   "label": "Glass Cube",
+   "category": "music",
+   "stamp": "MAY.23",
+   "india": false
+  },
+  {
+   "id": "c55",
+   "label": "Ice Burst",
+   "category": "product",
+   "stamp": "JUL.04",
+   "india": false
+  },
+  {
+   "id": "c56",
+   "label": "Chai Morning",
+   "category": "product",
+   "stamp": "OCT.02",
+   "india": true
+  },
+  {
+   "id": "c30",
+   "label": "Engraving",
+   "category": "anim",
+   "stamp": "JAN.27",
+   "india": false
+  },
+  {
+   "id": "c33",
+   "label": "Bleach Bypass",
+   "category": "film",
+   "stamp": "JUN.24",
+   "india": false
+  },
+  {
+   "id": "c57",
+   "label": "Phone Orbit",
+   "category": "product",
+   "stamp": "SEP.12",
+   "india": false
+  },
+  {
+   "id": "c58",
+   "label": "Beauty Collage",
+   "category": "product",
+   "stamp": "MAR.17",
+   "india": false
+  }
+ ]
+}
