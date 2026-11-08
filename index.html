@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="LeoBolt — AI film studio. AI films, narramatics, animated videos and AI VFX.">
+<link rel="icon" type="image/png" href="brand/favicon.png">
+<link rel="apple-touch-icon" href="brand/favicon.png">
+<meta property="og:title" content="LeoBolt — AI Film Studio">
+<meta property="og:image" content="brand/logo-colour.webp">
+<style>[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+<title>LeoBolt</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Archivo:wdth,wght@125,400;125,500;125,600&family=VT323&display=swap">
+<style>
+/* Layout: full-bleed masonry wall of looping clips; a giant 90s-Bazaar Didone wordmark floats over it in difference blend */
+:root{
+  --ink:#070707;
+  --tile:#121110;
+  --fg:#f3efe6;        /* ivory */
+  --mut:#8c877d;       /* warm grey */
+  --gold:#c9a96a;      /* champagne */
+  --line:#24221f;
+  --serif:'Bodoni Moda','Didot','Bodoni 72',Georgia,serif;
+  --wide:'Archivo','Helvetica Neue','Arial',sans-serif;
+  --cam:'VT323','Courier New',monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--wide);font-stretch:125%;font-weight:400;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:1px solid var(--gold);outline-offset:3px}
+.cap{font-family:var(--wide);font-stretch:125%;font-weight:500;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase}
+
+/* ---- top bar ---- */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+.bar{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:50;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  background:linear-gradient(to bottom,rgba(7,7,7,.88),rgba(7,7,7,0));}
+.bar .in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.mark{display:flex;align-items:center;text-decoration:none}
+.mark img{display:block;height:22px;width:auto;max-width:none}
+@media(max-width:900px){.mark img{height:18px}}
+.filters{display:flex;gap:2px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;min-width:0}
+.filters::-webkit-scrollbar{display:none}
+.filters button{background:none;border:0;cursor:pointer;padding:8px 12px;color:var(--mut);white-space:nowrap;transition:color .2s}
+.filters button:hover{color:var(--fg)}
+.filters button[aria-pressed="true"]{color:var(--fg)}
+.filters button[aria-pressed="true"]::after{content:"";display:block;height:1px;background:var(--gold);margin-top:4px}
+.enq{text-decoration:none;border:1px solid rgba(243,239,230,.35);padding:9px 18px;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+.enq:hover{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+@media(max-width:900px){
+  .bar .in{height:auto;padding-block:14px 8px;flex-wrap:wrap}
+  .filters{order:3;width:100%}
+}
+
+/* ---- wall ---- */
+.wall{
+  padding-top:calc(76px + env(safe-area-inset-top,0px));
+  padding-left:max(10px,env(safe-area-inset-left,0px));padding-right:max(10px,env(safe-area-inset-right,0px));
+  padding-bottom:10px;
+  columns:5 280px;column-gap:10px;
+}
+@media(max-width:900px){.wall{padding-top:calc(118px + env(safe-area-inset-top,0px));columns:2 160px;column-gap:8px;padding-left:max(8px,env(safe-area-inset-left,0px));padding-right:max(8px,env(safe-area-inset-right,0px))}}
+.t{break-inside:avoid;margin:0 0 10px;position:relative;border-radius:8px;overflow:hidden;background:var(--tile);cursor:pointer;display:block;width:100%;border:0;padding:0;
+  transform:translateZ(0);transition:opacity .4s, filter .4s}
+@media(max-width:900px){.t{margin-bottom:8px;border-radius:6px}}
+.t img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;max-width:100%}
+.t video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;max-width:100%;z-index:1;opacity:0;transition:opacity .5s, transform .9s cubic-bezier(.2,.7,.2,1)}
+.t video.ready{opacity:1}
+.t .lab{position:absolute;z-index:2;left:10px;top:10px;background:rgba(7,7,7,.66);backdrop-filter:blur(6px);
+  padding:5px 10px;opacity:0;transform:translateY(-4px);transition:opacity .25s,transform .25s}
+/* 90s camcorder stamp */
+.t .cam{position:absolute;z-index:2;right:10px;bottom:6px;font-family:var(--cam);font-size:17px;line-height:1;color:#ffcf6b;
+  text-shadow:0 0 6px rgba(255,180,60,.6),1px 1px 0 rgba(0,0,0,.6);opacity:0;transition:opacity .25s;letter-spacing:.04em}
+.t .rec{position:absolute;z-index:2;left:10px;bottom:6px;font-family:var(--cam);font-size:17px;line-height:1;color:#fff;opacity:0;transition:opacity .25s;text-shadow:1px 1px 0 rgba(0,0,0,.6)}
+.t .rec::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff3b30;margin-right:6px;vertical-align:1px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.t:hover .lab,.t:focus-visible .lab{opacity:1;transform:none}
+.t:hover .cam,.t:hover .rec,.t:focus-visible .cam,.t:focus-visible .rec{opacity:1}
+@media(hover:hover){ .t:hover video{transform:scale(1.04)} }
+.wall.filtering .t.off{opacity:.08;filter:grayscale(1);pointer-events:none}
+
+/* ---- giant wordmark over the wall ---- */
+.giant{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;mix-blend-mode:difference;transition:opacity .2s}
+.giant .foot90 span{text-shadow:0 1px 10px rgba(0,0,0,.8)}
+.giant h1{margin:0;line-height:0}
+.giant h1 img{display:block;width:min(60vw,900px);height:auto;max-width:100%}
+@media(max-width:700px){.giant h1 img{width:76vw}}
+.giant h1.old{margin:0;font-family:var(--serif);font-weight:400;color:#fff;text-transform:uppercase;
+  font-size:clamp(54px,14vw,250px);line-height:.88;letter-spacing:-.01em;text-align:center}
+.giant h1 em{font-style:italic;text-transform:none;letter-spacing:-.02em}
+.giant .sub{margin-top:18px;color:#fff}
+.giant .foot90{position:absolute;bottom:calc(30px + env(safe-area-inset-bottom,0px));left:0;right:0;display:flex;justify-content:space-between;color:#fff;
+  padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* ---- closing ---- */
+.close{padding-block:120px 60px;text-align:center;border-top:1px solid var(--line);position:relative;z-index:30;background:var(--ink);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.close-logo{display:block;width:min(260px,60vw);height:auto;margin:0 auto 46px;opacity:.92}
+.sting{position:relative;width:min(420px,78vw);aspect-ratio:960/564;max-width:100%;margin:0 auto 54px;border-radius:6px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(201,169,106,.25)}
+.sting img,.sting video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;max-width:100%}
+.sting video{z-index:1;opacity:0;transition:opacity .6s}.sting video.ready{opacity:1}
+.close h2{margin:18px auto 0;font-family:var(--serif);font-weight:400;font-size:clamp(36px,6.4vw,92px);line-height:1.02;letter-spacing:-.015em;max-width:14ch;text-wrap:balance}
+.close h2 em{color:var(--gold)}
+.mailrow{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:44px}
+.mail{font-family:var(--serif);font-style:italic;font-size:clamp(20px,3vw,30px);user-select:all;padding:6px 4px;border-bottom:1px solid var(--line)}
+#copyMail{background:none;border:1px solid rgba(243,239,230,.35);padding:10px 20px;cursor:pointer;align-self:center}
+#copyMail:hover{background:var(--fg);color:var(--ink)}
+.svcs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 30px;margin-top:70px;color:var(--mut)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:90px;color:var(--mut);max-width:1200px;margin-inline:auto}
+
+/* ---- lightbox ---- */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(5,5,5,.96);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  padding:max(20px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(20px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb[hidden]{display:none}
+.lb .frame{position:relative;max-width:min(1200px,100%)}
+.lb video{display:block;max-width:100%;max-height:76vh;width:auto;background:#000}
+.lb .frame .cam,.lb .frame .rec{opacity:1;font-size:24px;bottom:12px}
+.lb .frame .cam{right:16px}.lb .frame .rec{left:16px}
+.lb .meta{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;justify-content:center}
+.lb .meta b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;letter-spacing:0;text-transform:none}
+.lb .meta span{color:var(--gold)}
+.lb .x,.lb .nv{position:absolute;background:none;border:0;cursor:pointer;color:var(--fg);padding:12px}
+.lb .x{top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px))}
+.lb .nv{top:50%;transform:translateY(-50%);font-family:var(--serif);font-size:38px}
+.lb .pv{left:max(8px,env(safe-area-inset-left,0px))}
+.lb .nx{right:max(8px,env(safe-area-inset-right,0px))}
+@media(max-width:700px){.lb .nv{top:auto;bottom:max(18px,env(safe-area-inset-bottom,0px));transform:none}}
+</style>
+
+<header class="bar">
+  <div class="in">
+    <a class="mark" href="#top" aria-label="LeoBolt home"><img src="brand/logo-wordmark.png" alt="LeoBolt" width="640" height="88"></a>
+    <nav class="filters cap" id="filters" aria-label="Filter the work">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="film" aria-pressed="false">Films</button>
+      <button type="button" data-f="music" aria-pressed="false">Music Videos</button>
+      <button type="button" data-f="product" aria-pressed="false">Products</button>
+      <button type="button" data-f="anim" aria-pressed="false">Animation</button>
+      <button type="button" data-f="vfx" aria-pressed="false">VFX</button>
+      <button type="button" data-f="narra" aria-pressed="false">Narramatics</button>
+      <button type="button" data-f="india" aria-pressed="false">India</button>
+    </nav>
+    <a class="enq cap" href="#enquire">Enquire</a>
+  </div>
+</header>
+
+<div class="giant" id="giant" aria-hidden="true">
+  <h1><img src="brand/logo-type.png" alt="LeoBolt — AI Film Studio" width="1600" height="314"></h1>
+  <div class="foot90 cap"><span>Mumbai — Worldwide</span><span></span></div>
+</div>
+
+<main class="wall" id="wall"></main>
+
+<section class="close" id="enquire">
+  <div class="sting"><video id="sting" muted loop playsinline preload="none" poster="brand/logo-colour.webp" aria-label="LeoBolt animated logo"></video><img src="brand/logo-colour.webp" alt="LeoBolt — AI Film Studio" width="960" height="564"></div>
+  <span class="cap" style="color:var(--gold)">Enquire</span>
+  <h2>Let's make something <em>with love.</em></h2>
+  <div class="mailrow">
+    <span class="mail" id="mailTxt">hello@leobolt.in</span>
+    <button id="copyMail" class="cap" type="button">Copy</button>
+  </div>
+  <div class="svcs cap">
+    <span>AI Films</span><span>Narramatics</span><span>Animated Videos</span><span>AI VFX</span>
+  </div>
+  <div class="foot cap">
+    <span>© LeoBolt</span><span>leobolt.in</span>
+  </div>
+</section>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Clip viewer">
+  <button class="x cap" id="lbX" type="button">Close</button>
+  <button class="nv pv" id="lbP" type="button" aria-label="Previous clip">‹</button>
+  <div class="frame">
+    <video id="lbV" muted loop playsinline></video>
+    <span class="rec">PLAY</span><span class="cam" id="lbS"></span>
+  </div>
+  <div class="meta cap"><b id="lbT"></b><span id="lbC"></span></div>
+  <button class="nv nx" id="lbN" type="button" aria-label="Next clip">›</button>
+</div>
+
+<script>
+(function(){
+  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* clip id: [technique label, category, aspect w/h, camcorder stamp] — built from the files */
+  var CLIPS={"c01": ["Rain Plate", "film", 2.3667, "NOV.07", 0], "c02": ["Hand-Painted", "anim", 2.3667, "MAR.14", 0], "c03": ["Liquid Macro", "vfx", 2.3667, "JUL.02", 0], "c04": ["Storyboard", "narra", 2.3667, "FEB.21", 0], "c05": ["Crash Zoom", "music", 1.7917, "AUG.30", 0], "c06": ["Fashion Film", "film", 0.8054, "MAY.11", 0], "c07": ["Fisheye", "music", 1.7917, "JUN.19", 0], "c08": ["Time Smear", "vfx", 1.7917, "OCT.03", 0], "c09": ["Gel Portrait", "music", 0.8054, "DEC.24", 0], "c10": ["Symmetry", "film", 1.7917, "JAN.08", 0], "c12": ["Collage", "anim", 1.7917, "APR.26", 0], "c13": ["Platform Fog", "film", 1.7917, "FEB.02", 0], "c14": ["Silk & Marble", "film", 0.8054, "NOV.21", 0], "c15": ["Neon Street", "music", 1.7917, "JUL.17", 0], "c16": ["Super 8", "music", 0.8054, "MAY.05", 0], "c17": ["Miniature", "anim", 1.7792, "DEC.12", 0], "c18": ["Anime", "anim", 1.0, "AUG.09", 0], "c19": ["Motion Graphics", "anim", 1.8417, "MAR.30", 0], "c20": ["Scale Shot", "vfx", 1.7917, "JUN.01", 0], "c22": ["Pencil Board", "narra", 1.8417, "JAN.19", 0], "c23": ["Animatic", "narra", 1.8417, "SEP.06", 0], "c24": ["Moodboard", "narra", 0.8163, "APR.14", 0], "c25": ["Fisheye Mono", "music", 1.8417, "FEB.27", 0], "c26": ["Corridor", "film", 1.8417, "JUL.11", 0], "c27": ["Chrome", "vfx", 1.7917, "DEC.31", 0], "c28": ["Glass Cube", "music", 1.8417, "MAY.23", 0], "c29": ["Cartoon", "anim", 1.3792, "OCT.15", 0], "c30": ["Engraving", "anim", 0.8163, "JAN.27", 0], "c31": ["Zoetrope", "narra", 1.0, "AUG.18", 0], "c32": ["Cross-Process", "film", 0.8163, "MAR.08", 0], "c33": ["Bleach Bypass", "film", 1.8417, "JUN.24", 0], "c37": ["Inverted", "music", 1.8417, "MAR.03", 1], "c38": ["Worm's Eye", "music", 0.8163, "JUL.22", 1], "c39": ["Dutch Angle", "film", 1.8417, "OCT.11", 1], "c40": ["Keyhole", "film", 1.8417, "FEB.14", 1], "c41": ["Spiral Tunnel", "vfx", 1.7917, "AUG.15", 1], "c42": ["Extreme Close-Up", "film", 1.0, "NOV.04", 1], "c43": ["Top Shot", "music", 1.8417, "MAR.21", 1], "c44": ["Rain Night", "music", 0.8163, "JUL.30", 1], "c46": ["Miniature Painting", "anim", 1.8417, "JAN.26", 1], "c47": ["Aerial", "vfx", 1.8417, "OCT.24", 1], "c48": ["Wedding Board", "narra", 0.8163, "NOV.28", 1], "c49": ["Car Reveal", "product", 1.7917, "JUN.12", 0], "c50": ["Cockpit", "product", 1.7917, "JUN.12", 0], "c51": ["Bottle Top Shot", "product", 0.8054, "FEB.09", 0], "c52": ["Sneaker Drop", "product", 1.7917, "AUG.02", 0], "c53": ["Perfume Ripple", "product", 0.8054, "DEC.19", 0], "c54": ["Watch Macro", "product", 1.0, "MAY.30", 0], "c55": ["Ice Burst", "product", 1.7917, "JUL.04", 0], "c56": ["Chai Morning", "product", 0.8054, "OCT.02", 1], "c57": ["Phone Orbit", "product", 1.7917, "SEP.12", 0], "c58": ["Beauty Collage", "product", 0.8054, "MAR.17", 0]};
+  var CATN={film:"AI Film",music:"Music Video",product:"Product Film",anim:"Animation",vfx:"AI VFX",narra:"Narramatic"};
+  var ORDER=["c01", "c05", "c49", "c37", "c02", "c03", "c04", "c38", "c06", "c07", "c50", "c39", "c12", "c08", "c22", "c40", "c10", "c09", "c51", "c41", "c17", "c20", "c23", "c42", "c13", "c15", "c52", "c43", "c18", "c27", "c24", "c44", "c14", "c16", "c53", "c46", "c19", "c31", "c26", "c47", "c25", "c54", "c29", "c48", "c32", "c28", "c55", "c56", "c30", "c33", "c57", "c58"];
+  var wall=document.getElementById('wall');
+  var tiles=[];
+  ORDER.forEach(function(id,i){
+    var c=CLIPS[id];
+    var b=document.createElement('button');
+    b.type='button'; b.className='t'; b.dataset.id=id; b.dataset.cat=c[1]; if(c[4]) b.dataset.india='1';
+    b.setAttribute('aria-label',c[0]+', '+CATN[c[1]]+'. Open clip');
+    b.style.aspectRatio=String(c[2]);
+    b.innerHTML='<img src="wall/'+id+'.webp" alt="" loading="'+(i<10?'eager':'lazy')+'">'+
+      '<video muted loop playsinline preload="none"></video>'+
+      '<span class="lab cap">'+c[0]+'</span>'+
+      '<span class="rec">REC</span><span class="cam">'+c[3]+'</span>';
+    wall.appendChild(b); tiles.push(b);
+  });
+
+  /* play only tiles on screen */
+  function load(t){
+    var v=t.querySelector('video');
+    if(!v.getAttribute('src')){ v.src='wall/'+t.dataset.id+'.mp4'; v.addEventListener('playing',function(){v.classList.add('ready')},{once:true}); }
+    return v;
+  }
+  if(!reduced && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var v=load(e.target);
+        if(e.isIntersecting){ var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
+        else v.pause();
+      });
+    },{rootMargin:'200px 0px'});
+    tiles.forEach(function(t){io.observe(t)});
+  }
+
+  /* filters */
+  var fbtns=[].slice.call(document.querySelectorAll('#filters button'));
+  fbtns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=b.dataset.f;
+      fbtns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      wall.classList.toggle('filtering',f!=='all');
+      tiles.forEach(function(t){ var hit = f==='all' || (f==='india' ? t.dataset.india==='1' : t.dataset.cat===f); t.classList.toggle('off',!hit); });
+      if(f!=='all') scrollTo({top:0,behavior:reduced?'auto':'smooth'});
+    });
+  });
+
+  /* giant wordmark fades as the wall scrolls */
+  var g=document.getElementById('giant');
+  function onScroll(){ var o=Math.max(0,1-scrollY/(innerHeight*.55)); g.style.opacity=o.toFixed(3); g.style.visibility=o<.01?'hidden':'visible'; }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* lightbox */
+  var lb=document.getElementById('lb'), lv=document.getElementById('lbV'), lt=document.getElementById('lbT'), lc=document.getElementById('lbC'), ls=document.getElementById('lbS');
+  var uniq=Object.keys(CLIPS), cur=0, opener=null;
+  function show(i){
+    cur=(i+uniq.length)%uniq.length; var id=uniq[cur], c=CLIPS[id];
+    lv.poster='wall/'+id+'.webp'; lv.src='wall/'+id+'.mp4';
+    lt.textContent=c[0]; lc.textContent=CATN[c[1]]; ls.textContent=c[3];
+    var p=lv.play(); if(p&&p.catch)p.catch(function(){});
+  }
+  function open(id,from){ opener=from; lb.hidden=false; document.body.style.overflow='hidden'; show(uniq.indexOf(id)); document.getElementById('lbX').focus(); }
+  function shut(){ lb.hidden=true; lv.pause(); lv.removeAttribute('src'); lv.load(); document.body.style.overflow=''; if(opener)opener.focus(); }
+  tiles.forEach(function(t){ t.addEventListener('click',function(){ open(t.dataset.id,t); }); });
+  document.getElementById('lbX').addEventListener('click',shut);
+  document.getElementById('lbP').addEventListener('click',function(){show(cur-1)});
+  document.getElementById('lbN').addEventListener('click',function(){show(cur+1)});
+  lb.addEventListener('click',function(e){ if(e.target===lb) shut(); });
+  addEventListener('keydown',function(e){
+    if(lb.hidden) return;
+    if(e.key==='Escape') shut();
+    if(e.key==='ArrowRight') show(cur+1);
+    if(e.key==='ArrowLeft') show(cur-1);
+  });
+
+  /* colour logo sting plays when scrolled into view */
+  var st=document.getElementById('sting');
+  if(st && !reduced && 'IntersectionObserver' in window){
+    var sio=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){ if(!st.getAttribute('src')){ st.src='brand/logo-sting.mp4'; st.addEventListener('playing',function(){st.classList.add('ready')},{once:true}); }
+        var pp=st.play(); if(pp&&pp.catch)pp.catch(function(){}); } else st.pause();
+    });},{threshold:.25}); sio.observe(st);
+  }
+
+  /* copy email */
+  var bc=document.getElementById('copyMail'), mt=document.getElementById('mailTxt');
+  bc.addEventListener('click',function(){
+    function done(ok){ bc.textContent=ok?'Copied':'Selected'; setTimeout(function(){bc.textContent='Copy'},1600); }
+    function sel(){ var r=document.createRange(); r.selectNodeContents(mt); var s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(mt.textContent.trim()).then(function(){done(true)},function(){sel();done(false)}); }
+    else { sel(); done(false); }
+  });
+})();
+</script>
+
+</body>
+</html>
