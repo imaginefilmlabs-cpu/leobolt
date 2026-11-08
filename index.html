@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="LeoBolt — AI film studio. AI films, narramatics, animated videos and AI VFX.">
+<meta name="description" content="LeoBolt — Creative Intelligence Studio. AI films, narramatics, animated videos and AI VFX.">
 <link rel="icon" type="image/png" href="brand/favicon.png">
 <link rel="apple-touch-icon" href="brand/favicon.png">
-<meta property="og:title" content="LeoBolt — AI Film Studio">
+<meta property="og:title" content="LeoBolt — Creative Intelligence Studio">
 <meta property="og:image" content="brand/logo-colour.webp">
 <style>[hidden]{display:none!important}img{max-width:100%}</style>
 </head>
@@ -14,7 +14,7 @@
 <title>LeoBolt</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Archivo:wdth,wght@125,400;125,500;125,600&family=VT323&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Archivo:ital,wdth,wght@0,125,400;0,125,500;0,125,600;1,125,700&family=VT323&display=swap">
 <style>
 /* Layout: full-bleed masonry wall of looping clips; a giant 90s-Bazaar Didone wordmark floats over it in difference blend */
 :root{
@@ -98,9 +98,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* ---- giant wordmark over the wall ---- */
 .giant{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;mix-blend-mode:difference;transition:opacity .2s}
 .giant .foot90 span{text-shadow:0 1px 10px rgba(0,0,0,.8)}
-.giant h1{margin:0;line-height:0}
-.giant h1 img{display:block;width:min(60vw,900px);height:auto;max-width:100%}
-@media(max-width:700px){.giant h1 img{width:76vw}}
+.giant h1{margin:0;--w:min(60vw,900px);width:var(--w);display:flex;flex-direction:column;align-items:center}
+.giant h1 img{display:block;width:100%;height:auto;max-width:100%}
+.giant h1 .tag{display:block;margin-top:calc(var(--w)*.035);color:#fff;font-family:var(--wide);font-stretch:125%;font-style:italic;font-weight:700;text-transform:uppercase;white-space:nowrap;font-size:calc(var(--w)*.0315);letter-spacing:.34em;margin-right:-.34em;line-height:1}
+@media(max-width:700px){.giant h1{--w:82vw}}
 .giant h1.old{margin:0;font-family:var(--serif);font-weight:400;color:#fff;text-transform:uppercase;
   font-size:clamp(54px,14vw,250px);line-height:.88;letter-spacing:-.01em;text-align:center}
 .giant h1 em{font-style:italic;text-transform:none;letter-spacing:-.02em}
@@ -162,14 +163,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 </header>
 
 <div class="giant" id="giant" aria-hidden="true">
-  <h1><img src="brand/logo-type.png" alt="LeoBolt — AI Film Studio" width="1600" height="314"></h1>
+  <h1><img src="brand/logo-wordmark-hd.png" alt="LeoBolt" width="1300" height="179"><span class="tag">Creative Intelligence Studio</span></h1>
   <div class="foot90 cap"><span>Mumbai — Worldwide</span><span></span></div>
 </div>
 
 <main class="wall" id="wall"></main>
 
 <section class="close" id="enquire">
-  <div class="sting"><video id="sting" muted loop playsinline preload="none" poster="brand/logo-colour.webp" aria-label="LeoBolt animated logo"></video><img src="brand/logo-colour.webp" alt="LeoBolt — AI Film Studio" width="960" height="564"></div>
+  <div class="sting"><video id="sting" muted loop playsinline preload="none" poster="brand/logo-colour.webp" aria-label="LeoBolt animated logo"></video><img src="brand/logo-colour.webp" alt="LeoBolt — Creative Intelligence Studio" width="960" height="564"></div>
   <span class="cap" style="color:var(--gold)">Enquire</span>
   <h2>Let's make something <em>with love.</em></h2>
   <div class="mailrow">
