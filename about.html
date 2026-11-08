@@ -6,9 +6,9 @@
 <title>About — LeoBolt</title>
 <meta name="description" content="LeoBolt is a creative intelligence studio in Mumbai. A full film crew's process for AI films, narramatics, animated videos and AI VFX.">
 <link rel="icon" type="image/png" href="brand/favicon.png">
-<link rel="apple-touch-icon" href="brand/favicon.png">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <meta property="og:title" content="About — LeoBolt, Creative Intelligence Studio">
-<meta property="og:image" content="brand/logo-colour.webp">
+<meta property="og:image" content="https://leobolt.in/brand/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Archivo:ital,wdth,wght@0,125,400;0,125,500;0,125,600;1,125,700&family=VT323&display=swap">
 <style>
@@ -46,7 +46,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media(max-width:640px){.mark img{height:16px}.links{gap:8px}.links .hide-sm{display:none}.enq{padding:8px 12px}.bar .in{gap:10px}}
 
 /* hero */
-.hero{padding-block:110px 70px}
+.hero{padding-block:110px 70px;position:relative}
+.seal{position:absolute;right:max(20px,env(safe-area-inset-right,0px));top:110px;width:min(260px,24vw);height:auto;aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 2px rgba(255,194,26,.55),0 30px 90px rgba(0,0,0,.7)}
+@media(max-width:900px){.seal{position:static;display:block;width:min(220px,56vw);margin:0 0 34px}}
 .eyebrow{color:var(--gold)}
 .hero h1{margin:22px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(42px,7.4vw,104px);line-height:1;letter-spacing:-.02em;max-width:13ch;text-wrap:balance}
 .hero h1 em{color:var(--gold)}
@@ -94,7 +96,7 @@ section:first-of-type{border-top:0}
 
 /* closing */
 .close{text-align:center;padding-block:120px 60px}
-.sting{position:relative;width:min(380px,78vw);aspect-ratio:960/564;margin:0 auto 50px;border-radius:6px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,194,26,.35)}
+.sting{position:relative;width:min(340px,72vw);aspect-ratio:1;margin:0 auto 50px;border-radius:50%;overflow:hidden;box-shadow:0 30px 90px rgba(255,194,26,.18),0 0 0 2px rgba(255,194,26,.55)}
 .sting img,.sting video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .close h2{margin:16px auto 0;font-family:var(--serif);font-weight:400;font-size:clamp(34px,5.6vw,80px);line-height:1.02;max-width:14ch;text-wrap:balance}
 .close h2 em{color:var(--gold)}
@@ -120,6 +122,7 @@ section:first-of-type{border-top:0}
 
 <main>
   <div class="wrap hero">
+    <img class="seal" src="brand/round-mono-painted.webp" alt="LeoBolt seal" width="700" height="700">
     <span class="cap eyebrow">About LeoBolt</span>
     <h1>A film crew, rebuilt for <em>AI.</em></h1>
     <p class="lede">LeoBolt is a <b>creative intelligence studio</b> in Mumbai, working with brands and agencies worldwide. We make <b>AI films, narramatics, animated videos and AI VFX</b>. Every frame is made with AI, and every decision still goes through a director, a DOP and an edit, the same way a live-action shoot does.</p>
@@ -177,7 +180,7 @@ section:first-of-type{border-top:0}
 
   <section class="close" id="enquire">
     <div class="wrap">
-      <div class="sting"><img src="brand/logo-colour.webp" alt="LeoBolt — Creative Intelligence Studio" width="960" height="564"><video src="brand/logo-sting.mp4" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video></div>
+      <div class="sting"><img src="brand/round-colour.webp" alt="LeoBolt — Creative Intelligence Studio" width="900" height="900"><video src="brand/round-sting.mp4" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video></div>
       <span class="cap" style="color:var(--gold)">Enquire</span>
       <h2>Let's make something <em>with love.</em></h2>
       <div><span class="mail">leoboltstudio@gmail.com</span></div>
