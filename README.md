@@ -26,7 +26,7 @@ Hosted on GitHub Pages from the `main` branch. Every push to `main` goes live in
 
 **Replace a clip** — `tools/add_clip.sh c05 <new-video>` (same id), then `python3 tools/build.py`.
 
-**Text, email, colours, logo** — edit `index.html` directly (contact email: search `hello@leobolt.in`).
+**Text, email, colours, logo** — edit `index.html` directly (contact email: search `leoboltstudio@gmail.com`).
 
 **Check before going live** — `node tools/check.js /tmp` screenshots desktop + phone and reports script errors.
 
