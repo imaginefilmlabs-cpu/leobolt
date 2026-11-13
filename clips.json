@@ -1,5 +1,5 @@
 {
- "_help": "Wall clips in display order. category: film | music | product | anim | vfx | narra. Edit this file, then run: python3 tools/build.py",
+ "_help": "Wall clips in display order. category: film | music | product | anim | vfx | narra | earlier. Earlier Work clips also take \"full\": \"films/<id>.mp4\" (full film with sound, plays on click). Edit this file, then run: python3 tools/build.py",
  "clips": [
   {
    "id": "c09",
@@ -28,6 +28,14 @@
    "category": "music",
    "stamp": "AUG.30",
    "india": false
+  },
+  {
+   "id": "e01",
+   "label": "Britannia Tiger Kreemz",
+   "category": "earlier",
+   "stamp": "TVC",
+   "india": true,
+   "full": "films/e01.mp4"
   },
   {
    "id": "c27",
@@ -72,6 +80,14 @@
    "india": false
   },
   {
+   "id": "e02",
+   "label": "Uber × Virat Kohli",
+   "category": "earlier",
+   "stamp": "TVC",
+   "india": true,
+   "full": "films/e02.mp4"
+  },
+  {
    "id": "c55",
    "label": "Ice Burst",
    "category": "product",
@@ -84,6 +100,14 @@
    "category": "vfx",
    "stamp": "OCT.03",
    "india": false
+  },
+  {
+   "id": "e10",
+   "label": "Rangana — Madhubani",
+   "category": "earlier",
+   "stamp": "TVC",
+   "india": true,
+   "full": "films/e10.mp4"
   },
   {
    "id": "c37",
@@ -112,6 +136,14 @@
    "category": "film",
    "stamp": "FEB.02",
    "india": false
+  },
+  {
+   "id": "e03",
+   "label": "Mangaldeep — Ayodhya",
+   "category": "earlier",
+   "stamp": "TVC",
+   "india": true,
+   "full": "films/e03.mp4"
   },
   {
    "id": "c17",
@@ -156,6 +188,14 @@
    "india": false
   },
   {
+   "id": "e04",
+   "label": "Asian Footwears — Go Chase",
+   "category": "earlier",
+   "stamp": "TVC",
+   "india": true,
+   "full": "films/e04.mp4"
+  },
+  {
    "id": "c54",
    "label": "Watch Macro",
    "category": "product",
@@ -196,6 +236,14 @@
    "category": "product",
    "stamp": "MAR.17",
    "india": false
+  },
+  {
+   "id": "e05",
+   "label": "Rangana — Gulrana",
+   "category": "earlier",
+   "stamp": "TVC",
+   "india": true,
+   "full": "films/e05.mp4"
   },
   {
    "id": "c03",
@@ -240,6 +288,14 @@
    "india": true
   },
   {
+   "id": "e06",
+   "label": "Asian Footwears — Chase the Groove",
+   "category": "earlier",
+   "stamp": "TVC",
+   "india": true,
+   "full": "films/e06.mp4"
+  },
+  {
    "id": "c23",
    "label": "Animatic",
    "category": "narra",
@@ -273,6 +329,14 @@
    "category": "narra",
    "stamp": "APR.14",
    "india": false
+  },
+  {
+   "id": "e07",
+   "label": "Chetak Electric",
+   "category": "earlier",
+   "stamp": "TVC",
+   "india": true,
+   "full": "films/e07.mp4"
   },
   {
    "id": "c44",
@@ -310,6 +374,14 @@
    "india": false
   },
   {
+   "id": "e08",
+   "label": "Tata Sky — World Screen",
+   "category": "earlier",
+   "stamp": "TVC",
+   "india": true,
+   "full": "films/e08.mp4"
+  },
+  {
    "id": "c47",
    "label": "Aerial",
    "category": "vfx",
@@ -343,6 +415,14 @@
    "category": "film",
    "stamp": "MAR.08",
    "india": false
+  },
+  {
+   "id": "e09",
+   "label": "Tata Salt — Health Manicure",
+   "category": "earlier",
+   "stamp": "TVC",
+   "india": true,
+   "full": "films/e09.mp4"
   },
   {
    "id": "c28",
