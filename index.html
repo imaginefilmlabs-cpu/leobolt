@@ -336,7 +336,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       io.classList.add('out'); document.body.style.overflow='';
       setTimeout(function(){ iv.pause(); iv.removeAttribute('src'); iv.load(); io.hidden=true; },750); }
     io.hidden=false; document.body.style.overflow='hidden';
-    iv.muted=true; iv.src='films/opening.mp4';
+    iv.muted=true; iv.src='films/opening.mp4?v=2';
     var p=iv.play(); if(p&&p.catch)p.catch(function(){ end(); });
     iv.addEventListener('ended',end); iv.addEventListener('error',end);
     sk.addEventListener('click',end);
