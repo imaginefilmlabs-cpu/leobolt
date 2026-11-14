@@ -150,6 +150,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .lb .pv{left:max(8px,env(safe-area-inset-left,0px))}
 .lb .nx{right:max(8px,env(safe-area-inset-right,0px))}
 @media(max-width:700px){.lb .nv{top:auto;bottom:max(18px,env(safe-area-inset-bottom,0px));transform:none}}
+
+/* ---- opening film: plays once per visit over the wall, then lifts ---- */
+.intro{position:fixed;inset:0;z-index:100;background:#15100d;display:flex;align-items:center;justify-content:center;transition:opacity .7s}
+.intro.out{opacity:0;pointer-events:none}
+.intro video{width:100%;height:100%;object-fit:contain;display:block;max-width:100%}
+.intro .ib{position:absolute;bottom:calc(22px + env(safe-area-inset-bottom,0px));background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.35);color:#fff;cursor:pointer;padding:10px 16px;transition:background .2s,color .2s,border-color .2s}
+.intro .ib:hover{border-color:var(--gold);color:var(--gold)}
+.intro #introSnd{left:max(18px,env(safe-area-inset-left,0px))}
+.intro #introSnd[aria-pressed="false"]{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:600}
+.intro #introSkip{right:max(18px,env(safe-area-inset-right,0px))}
 </style>
 
 <header class="bar">
@@ -204,6 +214,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </div>
   <div class="meta cap"><b id="lbT"></b><span id="lbC"></span></div>
   <button class="nv nx" id="lbN" type="button" aria-label="Next clip">›</button>
+</div>
+
+<div class="intro" id="intro" hidden role="dialog" aria-label="LeoBolt opening film">
+  <video id="introV" playsinline preload="none" poster="films/opening.webp"></video>
+  <button class="ib cap" id="introSnd" type="button" aria-pressed="false">Sound on</button>
+  <button class="ib cap" id="introSkip" type="button">Skip</button>
 </div>
 
 <script>
@@ -310,6 +326,23 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         var pp=st.play(); if(pp&&pp.catch)pp.catch(function(){}); } else st.pause();
     });},{threshold:.25}); sio.observe(st);
   }
+
+  /* opening film: once per visit; muted autoplay (browsers block sound until a tap), Sound on / Skip */
+  (function(){
+    var io=document.getElementById('intro'), iv=document.getElementById('introV'), sb=document.getElementById('introSnd'), sk=document.getElementById('introSkip'), seen=false;
+    try{ seen=sessionStorage.getItem('lbIntro')==='1'; }catch(e){}
+    if(seen || reduced || /^#(f=|enquire)/.test(location.hash||'')) return;
+    function end(){ if(io.classList.contains('out')) return; try{ sessionStorage.setItem('lbIntro','1'); }catch(e){}
+      io.classList.add('out'); document.body.style.overflow='';
+      setTimeout(function(){ iv.pause(); iv.removeAttribute('src'); iv.load(); io.hidden=true; },750); }
+    io.hidden=false; document.body.style.overflow='hidden';
+    iv.muted=true; iv.src='films/opening.mp4';
+    var p=iv.play(); if(p&&p.catch)p.catch(function(){ end(); });
+    iv.addEventListener('ended',end); iv.addEventListener('error',end);
+    sk.addEventListener('click',end);
+    sb.addEventListener('click',function(){ iv.muted=!iv.muted; sb.setAttribute('aria-pressed',String(!iv.muted)); sb.textContent=iv.muted?'Sound on':'Sound off'; });
+    addEventListener('keydown',function(e){ if(e.key==='Escape'&&!io.hidden) end(); });
+  })();
 
   /* copy email */
   var bc=document.getElementById('copyMail'), mt=document.getElementById('mailTxt');
