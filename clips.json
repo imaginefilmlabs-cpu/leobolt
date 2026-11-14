@@ -2,6 +2,14 @@
  "_help": "Wall clips in display order. category: film | music | product | anim | vfx | narra | earlier. Earlier Work clips also take \"full\": \"films/<id>.mp4\" (full film with sound, plays on click). Edit this file, then run: python3 tools/build.py",
  "clips": [
   {
+   "id": "c59",
+   "label": "LeoBolt Coffee",
+   "category": "anim",
+   "stamp": "NOV.14",
+   "india": true,
+   "full": "films/opening.mp4"
+  },
+  {
    "id": "c09",
    "label": "Gel Portrait",
    "category": "music",
